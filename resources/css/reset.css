@@ -1,0 +1,41 @@
+html{
+    background: #fff;
+    font-size: 20px;
+    overflow: hidden;
+    height: 100%
+}
+body{
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+}
+@media only screen and (min-width: 321px){
+    html {
+        font-size: 23px !important;
+    }
+}
+@media only screen and (min-width: 376px){
+    html {
+        font-size: 30px !important;
+    }
+}
+@media only screen and (min-width: 401px){
+    html {
+        font-size: 27px !important; 
+    }
+}
+@media only screen and (min-width: 415px){
+    html {
+        font-size: 27px !important; 
+    }
+}
+@media only screen and (min-width: 768px){
+    html {
+        font-size: 43px !important; 
+    }
+}
+@media only screen and (min-width: 1024px){
+    html {
+        font-size: 53px !important; 
+    }
+}
