@@ -1,5 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
+var marked = require("marked");
+var renderer = new marked.Renderer();
 module.exports = {
     //跟踪代码错误位置
     devtool:'cheap-module-eval-source-map',
@@ -63,7 +65,22 @@ module.exports = {
                 use: [
                     'file-loader' // 图片小于8k就转化为 base64, 或者单独作为文件
                 ]
-            }
+            },
+            {
+            test: /\.md$/,
+            use: [
+                {
+                    loader: "html-loader"
+                },
+                {
+                    loader: "markdown-loader",
+                    options: {
+                        pedantic: true,
+                        renderer
+                    }
+                }
+            ]
+        }
         ]
     }
 
