@@ -4,6 +4,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Style from './artical.less'
 import mdStyle from '../../resources/css/markdown.css'
 import {markdown} from 'markdown'
+import IconButton from 'material-ui/IconButton';
+import ActionGrade from 'material-ui/svg-icons/Editor/vertical-align-top';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
 import html from './articalFile/array.md'
 export default React.createClass({
     /* 本页面要实现的目标：
@@ -17,6 +20,9 @@ export default React.createClass({
     留言或者说评论功能；
     写文章的日期显示；
      */
+    goToTop(e){
+        document.documentElement.scrollTop = document.body.scrollTop =0;
+    },
     render(){
         let articalContext = html;
         var a = require('./articalFile/array.md');
@@ -25,6 +31,11 @@ export default React.createClass({
                 <Navbar title = {'文章'}/>
                 <div id="container"  className={mdStyle.markdownBody} dangerouslySetInnerHTML={{__html: a}}> 
                     {/*{articalContext}*/}
+                </div>
+                <div onClick = {this.goToTop}>   
+                    <FloatingActionButton className={Style.backButton} >
+                    <ActionGrade color="red"/>
+                    </FloatingActionButton>
                 </div>
             </div>
         </MuiThemeProvider>
