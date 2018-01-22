@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var resolve = path.resolve;
 var marked = require("marked");
 var renderer = new marked.Renderer();
 module.exports = {
@@ -82,6 +83,15 @@ module.exports = {
             ]
         }
         ]
+    },
+    resolve:{
+        extensions: ['.js','.css','.less'],
+        modules: ['node_modules','components','views','resources','plugins'],
+        alias: {
+            'jquery':           resolve(__dirname, 'plugins/zepto'),
+            'tool':             resolve(__dirname, 'plugins/toolFun'),
+            'animate':          resolve(__dirname, 'plugins/swiper.animate1.0.2.min.js')
+        }
     }
 
 }
