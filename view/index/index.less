@@ -22,8 +22,19 @@
         font-size: 0.5em;
         margin: 0;
         line-height: 0.5rem;
+        font-family: 'Poiret One', cursive;
+        transform:translateX(-200px);
+        opacity:0;
+        transition:all .4s;
     }
+    
 
+}
+.ani-slide{
+    p{
+        transform:translateX(0)!important;
+        opacity:1!important;
+    }
 }
 .indexPage{
     width: 100%;
@@ -89,7 +100,6 @@
             transition-timing-function: ease-out;
             margin: 0 auto;
         }
-      
         .swiper-slide {
             -ms-flex-negative: 0;
             flex-shrink: 0;
@@ -97,6 +107,7 @@
             height: 100%;
             position: relative;
         }
+        
       
         .swiper-invisible-blank-slide {
             visibility: hidden;

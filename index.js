@@ -8,7 +8,6 @@ import "./resources/css/reset.css";
 
 import  "jquery";
 import  "toolFun.js";
-import  'animate';
 render ((
     <HashRouter> 
         <div className={Style.reactContainer}>

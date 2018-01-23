@@ -89,8 +89,7 @@ module.exports = {
         modules: ['node_modules','components','views','resources','plugins'],
         alias: {
             'jquery':           resolve(__dirname, 'plugins/zepto'),
-            'tool':             resolve(__dirname, 'plugins/toolFun'),
-            'animate':          resolve(__dirname, 'plugins/swiper.animate1.0.2.min.js')
+            'tool':             resolve(__dirname, 'plugins/toolFun')
         }
     }
 

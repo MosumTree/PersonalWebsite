@@ -1,10 +1,17 @@
-import React from 'react'
+import React,{Component} from 'react';
 import {Link} from 'react-router-dom'
 import Style from './index.less';
 import aniStyle from '../../resources/css/animate.min.css'
 import history from 'react-router';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-export default React.createClass({
+import Menu from 'menu/menu';
+export default class extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            isIn:0
+        }
+    }
     componentWillMount(){
 
         $.loadJS("https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js",function(){
@@ -32,10 +39,10 @@ export default React.createClass({
 			})
 
 		});
-    },
+    }
     jump(e){
         this.props.history.push("/artical");
-    },
+    }
     render(){
         let _this = this;
         return  <div className={Style.indexContainer + " swiper-container"}>
@@ -44,6 +51,7 @@ export default React.createClass({
                             <div className={Style.indexTitle}>
                                 <strong><span>MO</span>SUM</strong>
                             </div>
+                            <Menu isShow = {true}/>
                         </div>
                         <div className = {Style.indexPage+" swiper-slide"}>
                             <div className={Style.indexTitle}>
@@ -60,4 +68,4 @@ export default React.createClass({
                     </div>
                 </div>
     }
-})
+}

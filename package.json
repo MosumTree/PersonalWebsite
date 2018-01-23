@@ -4,11 +4,12 @@
   "description": "It's my first personal website!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-win": "del dist && webpack --config ./webpack.prod.config.js --progress --profile --colors"
   },
   "author": "mosum",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies":{
     "autoprefixer": "^7.1.1",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
@@ -19,15 +20,21 @@
     "css-loader": "^0.28.4",
     "file-loader": "^0.11.2",
     "html-loader": "^0.5.0",
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.6.1",
     "imports-loader": "^0.7.1",
     "jsx-loader": "^0.13.2",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
+    "postcss-loader": "^2.0.6",
+    "style-loader": "^0.18.2"
+  },
+  "dependencies": {
     "markdown": "^0.5.0",
     "markdown-loader": "^2.0.1",
     "marked": "^0.3.6",
     "material-ui": "^0.18.7",
-    "postcss-loader": "^2.0.6",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -35,9 +42,7 @@
     "react-router-dom": "^4.1.2",
     "react-router-transition": "^0.1.1",
     "react-swipeable": "^4.1.0",
-    "react-tap-event-plugin": "^2.0.1",
-    "style-loader": "^0.18.2",
-    "webpack": "^3.4.1",
-    "webpack-dev-server": "^2.6.1"
+    "react-tap-event-plugin": "^2.0.1"
+    
   }
 }
