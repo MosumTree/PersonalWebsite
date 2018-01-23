@@ -7,18 +7,28 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 export default React.createClass({
     componentWillMount(){
 
-        $.loadJS("https://img.1234567.com.cn/com/swiper/1.0.0/swiper.min.js",function(){
-			
+        $.loadJS("https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js",function(){
+			let slide;
 			let mySwiper = new Swiper ('.swiper-container', {
                 direction:"vertical",
                 mousewheel: true,
-                onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
-                    swiperAnimateCache(swiper); //隐藏动画元素 
-                    swiperAnimate(swiper); //初始化完成开始动画
-                }, 
-                onSlideChangeEnd: function(swiper){ 
-                    swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
-                } 
+                on:{
+                    init:function(swiper){
+                        slide=this.slides.eq(0);
+                        slide.addClass('ani-slide');
+                    },
+                    transitionStart: function(){
+                        for(let i=0;i<this.slides.length;i++){
+                            slide=this.slides.eq(i);
+                            slide.removeClass('ani-slide');
+                        }
+                    },
+                    transitionEnd: function(){
+                        slide=this.slides.eq(this.activeIndex);
+                        slide.addClass('ani-slide');
+                        
+                    },
+                }
 			})
 
 		});
@@ -38,7 +48,7 @@ export default React.createClass({
                         <div className = {Style.indexPage+" swiper-slide"}>
                             <div className={Style.indexTitle}>
                                 <strong >文章</strong>
-                                <p>Artical</p>
+                                <p>Articals</p>
                             </div>
                         </div>
                         <div className = {Style.indexPage+" swiper-slide"}>
