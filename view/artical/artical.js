@@ -62,6 +62,7 @@ export default React.createClass({
         let articalContext = html;
         var a = require('./articalFile/array.md');
         let isShowDrawer = this.state.showDrawer;
+        console.log(this.props.match.params.id)
         return <MuiThemeProvider>
             <Swipeable onSwiping={this.swiping}>
             <div>

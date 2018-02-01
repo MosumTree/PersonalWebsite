@@ -18,9 +18,9 @@ var server = new WebpackDevServer(compiler, {
 	}
 });
 
-server.listen(3060, 'localhost', function(err, result) {
+server.listen(3060, '172.31.35.37', function(err, result) {
 	if (err) {
 		return console.log(err);
 	}
-	console.log('Listening at http://localhost:3060/');
+	console.log('Listening at http://172.31.35.37:3060/');
 });

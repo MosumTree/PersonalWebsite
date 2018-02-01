@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 import Style from './index.less';
 import aniStyle from '../../resources/css/animate.min.css'
 import history from 'react-router';
@@ -12,7 +12,7 @@ export default class extends Component{
             isIn:0
         }
     }
-    componentWillMount(){
+    componentDidMount(){
 
         $.loadJS("https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js",function(){
 			let slide;
@@ -27,7 +27,7 @@ export default class extends Component{
                     transitionStart: function(){
                         for(let i=0;i<this.slides.length;i++){
                             slide=this.slides.eq(i);
-                            slide.removeClass('ani-slide');
+                            // slide.removeClass('ani-slide');
                         }
                     },
                     transitionEnd: function(){
@@ -49,21 +49,21 @@ export default class extends Component{
                     <div className = {"swiper-wrapper"}>
                         <div className = {Style.indexPage+" swiper-slide"}>
                             <div className={Style.indexTitle}>
-                                <strong><span>MO</span>SUM</strong>
+                                <strong className = {Style.title}><span>MO</span>SUM</strong>
                             </div>
                             <Menu isShow = {true}/>
                         </div>
                         <div className = {Style.indexPage+" swiper-slide"}>
-                            <div className={Style.indexTitle}>
-                                <strong >文章</strong>
+                            <Link className={Style.indexTitle} to = "/artical">
+                                <h2>文章</h2>
                                 <p>Articals</p>
-                            </div>
+                            </Link>
                         </div>
                         <div className = {Style.indexPage+" swiper-slide"}>
-                            <div className={Style.indexTitle} >
-                                <strong className = {"ani"}>组件</strong>
+                            <Link className={Style.indexTitle} to = "/artical">
+                                <h2 className = {"ani"}>组件</h2>
                                 <p>Components</p>
-                            </div>
+                            </Link>
                         </div>
                     </div>
                 </div>
