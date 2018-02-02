@@ -4,12 +4,17 @@ import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'mat
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Link} from 'react-router-dom';
+import RequestModel from 'requestmodel';
+let requestmodel = new RequestModel();
 export default class extends Component{
     constructor(props){
         super(props);
         this.state = {
 
         }
+    }
+    componentDidMount(){
+        requestmodel.sendGetRequest({"id":"1"},"http://localhost:3000/getUserInfo/getArticals");
     }
     render(){
         return <MuiThemeProvider>

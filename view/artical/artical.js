@@ -8,9 +8,7 @@ import IconButton from 'material-ui/IconButton';
 import ActionGrade from 'material-ui/svg-icons/Editor/vertical-align-top';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import html from './articalFile/array.md';
-import Swipeable from 'react-swipeable';
 import {List, ListItem} from 'material-ui/List';
-import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import ContentInbox from 'material-ui/svg-icons/content/inbox';
 import ContentSend from 'material-ui/svg-icons/content/send';
@@ -60,44 +58,21 @@ export default React.createClass({
     },
     render(){
         let articalContext = html;
-        var a = require('./articalFile/array.md');
+        // var a = require('./articalFile/array.md');
         let isShowDrawer = this.state.showDrawer;
         console.log(this.props.match.params.id)
         return <MuiThemeProvider>
-            <Swipeable onSwiping={this.swiping}>
             <div>
                 {/*<Navbar title = {'文章'}/>*/}
                 <ArticalView/>
-                <div id="container"  className={mdStyle.markdownBody} dangerouslySetInnerHTML={{__html: a}}> 
-                    {/*{articalContext}*/}
-                </div>
+                {/* <div id="container"  className={mdStyle.markdownBody} dangerouslySetInnerHTML={{__html: a}}> 
+                </div> */}
                 <div onClick = {this.goToTop}>   
                     <FloatingActionButton className={Style.backButton} >
                     <ActionGrade color="red"/>
                     </FloatingActionButton>
                 </div>
-                <Drawer open={isShowDrawer} width={200}>
-                        <List>
-                            <ListItem primaryText="Inbox" leftIcon={<ContentInbox />} />
-                            <ListItem primaryText="Starred" leftIcon={<ActionGrade />} />
-                            <ListItem primaryText="Sent mail" leftIcon={<ContentSend />} />
-                            <ListItem primaryText="Drafts" leftIcon={<ContentDrafts />} />
-                            <ListItem primaryText="Inbox" leftIcon={<ContentInbox />} />
-                        </List>
-                        <Divider />
-                        <List>
-                            <ListItem primaryText="All mail" rightIcon={<ActionInfo />} />
-                            <ListItem primaryText="Trash" rightIcon={<ActionInfo />} />
-                            <ListItem primaryText="Spam" rightIcon={<ActionInfo />} />
-                            <ListItem primaryText="Follow up" rightIcon={<ActionInfo />} />
-                            <ListItem primaryText="All mail" rightIcon={<ActionInfo />} />
-                            <ListItem primaryText="Trash" rightIcon={<ActionInfo />} />
-                            <ListItem primaryText="Spam" rightIcon={<ActionInfo />} />
-                            <ListItem primaryText="Follow up" rightIcon={<ActionInfo />} />
-                        </List>
-                </Drawer>
             </div>
-            </Swipeable>
         </MuiThemeProvider>
     }
 })

@@ -89,7 +89,8 @@ module.exports = {
         modules: ['node_modules','components','views','resources','plugins'],
         alias: {
             'jquery':           resolve(__dirname, 'plugins/zepto'),
-            'tool':             resolve(__dirname, 'plugins/toolFun')
+            'tool':             resolve(__dirname, 'plugins/toolFun'),
+            'requestmodel':     resolve(__dirname, 'plugins/requestModel')
         }
     }
 
