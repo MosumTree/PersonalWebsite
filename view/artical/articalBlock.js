@@ -14,7 +14,7 @@ export default class extends Component{
         }
     }
     componentDidMount(){
-        requestmodel.sendGetRequest({"id":"1"},"http://localhost:3000/getUserInfo/getArticals");
+        // requestmodel.sendGetRequest({"id":"1"},"http://localhost:3000/getUserInfo/getArticals");
     }
     render(){
         return <MuiThemeProvider>
@@ -22,12 +22,12 @@ export default class extends Component{
                 <Link to={`/articalText/1`} className = { Style.block_link }>
                         <Card>
                             <CardHeader
-                            title="URL Avatar"
-                            subtitle="Subtitle"
-                            avatar="resources/img/example.jpg"
+                                title="URL Avatar"
+                                subtitle="Subtitle"
+                                avatar="resources/img/example.jpg"
                             />
                             <CardMedia
-                            overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
+                                overlay={<CardTitle title="Overlay title" subtitle="Overlay subtitle" />}
                             >
                             <img src="resources/img/example.jpg" alt="" />
                             </CardMedia>

@@ -60,10 +60,15 @@ export default class extends Component{
                             </Link>
                         </div>
                         <div className = {Style.indexPage+" swiper-slide"}>
-                            <Link className={Style.indexTitle} to = "/artical">
+                            <div className={Style.indexTitle}>
                                 <h2 className = {"ani"}>组件</h2>
                                 <p>Components</p>
-                            </Link>
+                                <Link className = { Style.component_demo } to = "/sharingComponent">
+                                    DEMO
+                                </Link>
+                            </div>
+
+                            
                         </div>
                     </div>
                 </div>
