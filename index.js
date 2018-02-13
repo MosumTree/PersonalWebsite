@@ -1,6 +1,6 @@
 import React from 'react'
 import {render} from 'react-dom'
-import { BrowserRouter,HashRouter, Route,Link } from 'react-router-dom'
+import { HashRouter  as Router, Route, Link } from 'react-router-dom'
 import App from './view/index/index'
 import Artical from './view/artical/articalBlock'
 import ArticalText from './view/artical/artical'
@@ -11,12 +11,12 @@ import "./resources/css/reset.css";
 import  "jquery";
 import  "toolFun.js";
 render ((
-    <HashRouter> 
+    <Router> 
         <div className={Style.reactContainer}>
             <Route exact path="/" component={App}/>
             <Route path="/artical" component={Artical}/>
             <Route path="/articalText/:id" component={ArticalText}/>
             <Route path="/sharingComponent" component={SharingComponent}/>
         </div>
-    </HashRouter>
+    </Router>
 ),document.getElementById('app'))
