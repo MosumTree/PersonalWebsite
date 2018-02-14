@@ -12,11 +12,14 @@ class ShowDialog extends Component{
         super(props)
         this.state = {
             isShow: false,
+            title:'',
             content: '',
-            callbcack:()=>false,
-            buttonName:'确定'
+            callback:()=>false,
+            cancleCallback:()=>false,
+            confirmText:'',
+            cancleText:''
         }
-        that = this
+        that = this;
     }
     
     componentWillUnmount() {
@@ -32,7 +35,7 @@ class ShowDialog extends Component{
     render() {
         const _this = this;
         return(
-            <Dialog isShow={this.state.isShow} showContent={this.state.content} buttonName={this.state.buttonName} closeView={this.state.callback}></Dialog>
+            <Dialog { ..._this.state }></Dialog>
         )
     }
 }
@@ -40,21 +43,31 @@ class ShowDialog extends Component{
 ReactDOM.render(<ShowDialog />, container)
 
 
-export default function ShowDialogControl (isShow,msg,callback,btName) {
+export default function ShowDialogControl ({isShow = false,type = 1, title = "Title", content = "No Message", confirmText = "ok", cancleText = "cancle", callback, cancleCallback}) {
 
-    let callback1 = function(){
+    let confirm = function(){
         that.closeView();
         if (callback) {
             callback();
         }
         
     }
-
+    let cancle = function(){
+        that.closeView();
+        if (cancleCallback) {
+            cancleCallback();
+        }
+        
+    }
     that.setState({
-        isShow: isShow || false,
-        content: msg || "网络不给力（N003）",
-        buttonName:btName||"确定",
-        callback:callback1
+        isShow: isShow,
+        type:type,
+        title:title,
+        content:content,
+        confirmText:confirmText,
+        cancleText:confirmText,
+        callback:confirm,
+        cancleCallback:cancle
     })
 }
 

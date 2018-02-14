@@ -26,7 +26,7 @@ export default class extends Component {
                     onClick={this.handleToggle}
                     style={
                         {
-                            backgroundColor: '#2578b5'
+                            backgroundColor: '#000'
                         }
                     }
                 />

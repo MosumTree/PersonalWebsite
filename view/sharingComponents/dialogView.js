@@ -14,9 +14,16 @@ export default class extends Component{
     }
     render(){
         let _this = this;
-        let alertList = [["isShow","bool","true","控制组件显示"],["showContent","string","No Message","弹窗正文"],["closeView","function","","按钮回调事件"]]
-        let confirmList = [["isShow","bool","true","控制组件显示"],["showContent","string","No Message","弹窗正文"],["closeView","function","","按钮回调事件"],["isShow","bool","true","控制组件显示"],["showContent","string","No Message","弹窗正文"],["closeView","function","","按钮回调事件"]]
-        let loadingList = [["isShow","bool","true","控制组件显示"],["showContent","string","加载中","弹窗正文"]]
+        let dialogList = [
+            ["isShow","bool","true","控制组件显示"],
+            ["type","number","1","弹窗类型"],
+            ["title","string","Title","弹窗标题"],
+            ["content","string","No Message","弹窗正文"],
+            ["confirmText","string","ok","确认按钮文本"],
+            ["cancleText","string","cancle","取消按钮文本"],
+            ["callback","function","()=>false","确认按钮回调事件"],
+            ["cancleCallback","function","()=>false","取消按钮回调事件"]
+        ]
         //过滤器列表
 		let filterChoiceDic = {
             0:['C','估','估算涨幅'],
@@ -26,10 +33,10 @@ export default class extends Component{
             4:['Y','年','近1年'],
         }
         return  <div className={Style.indexContainer}>
-                    <ExampleContainer title = {"AlertMask"}>
+                    <ExampleContainer title = {"Dialog"}>
                         <div className = {Style.componentContainer}>
-                            <ExampleParameter tableList = {alertList}/>
-                            <ExampleButton clickCallback = {()=>ShowDialog(true)}/>
+                            <ExampleParameter tableList = {dialogList}/>
+                            <ExampleButton clickCallback = {()=>ShowDialog({isShow: true})}/>
                         </div>
                     </ExampleContainer>
                 </div>

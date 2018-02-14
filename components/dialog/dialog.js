@@ -12,16 +12,16 @@ class AlertMask extends Component{
 
     render() {
         const _this = this; 
-        const {isShow,showContent,buttonName,closeView} = _this.props;
+        const {isShow, type, title, content, confirmText, cancleText, callback, cancleCallback} = _this.props;
         return  isShow ? 
                     <div className={Style.alertMasker}>
                         <div>
                             <div className={Style.alert}>
                                 <div className={Style.inner}>
-                                    <h2>温馨提示</h2>
-                                    <p dangerouslySetInnerHTML={{ __html:showContent }}></p>
+                                    <h2>{title}</h2>
+                                    <p dangerouslySetInnerHTML={{ __html:content }}></p>
                                     <footer>
-                                        <a href="javascript:void(0);" className={Style.button} htmlFor="yes" onClick={(e)=>closeView(e)}>{buttonName}</a>
+                                        <a href="javascript:void(0);" className={Style.button} htmlFor="yes" onClick={callback}>{confirmText}</a>
                                     </footer>
                                 </div>
                             </div>
