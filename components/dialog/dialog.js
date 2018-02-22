@@ -9,12 +9,12 @@ class AlertMask extends Component{
         super(props);
         this.state = {};
     }
-
+    //弹窗3个优化问题：1.点击确定按钮时会有蓝色背景；2.弹窗出现时底部页面可以滚动；3.弹窗本身最好也有一个显示时的动画效果
     render() {
         const _this = this; 
         const {isShow, type, title, content, confirmText, cancleText, callback, cancleCallback} = _this.props;
-        return  isShow ? 
-                    <div className={Style.alertMasker}>
+        // _this.preventScroll(isShow);
+        return  <div className={isShow ? Style.alertMasker : Style.dialog_hidden}>
                         <div>
                             <div className={Style.alert}>
                                 <div className={Style.inner}>
@@ -26,7 +26,7 @@ class AlertMask extends Component{
                                 </div>
                             </div>
                         </div>
-                    </div>  :  null
+                    </div>  
     }
 }  
 

@@ -10,7 +10,8 @@ export default class extends Component{
         super(props);
     }
     componentDidMount(){
-        // ShowFilter(true,false);
+        //使用时先载入弹窗但不显示
+        ShowDialog({isShow: false});
     }
     render(){
         let _this = this;
@@ -36,7 +37,7 @@ export default class extends Component{
                     <ExampleContainer title = {"Dialog"}>
                         <div className = {Style.componentContainer}>
                             <ExampleParameter tableList = {dialogList}/>
-                            <ExampleButton clickCallback = {()=>ShowDialog({isShow: true})}/>
+                            <ExampleButton clickCallback = {()=>ShowDialog({isShow: true, title: '温馨提示', content: '弹窗内容'})}/>
                         </div>
                     </ExampleContainer>
                 </div>

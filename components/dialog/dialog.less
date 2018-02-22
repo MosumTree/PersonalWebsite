@@ -1,25 +1,37 @@
 /*cfxixi code 20130620 弹出框的样式*/
 .alertMasker {
+    .dialog_hidden;
+    pointer-events:auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    opacity: 1;
+    z-index: 10000;
+}
+.dialog_hidden{
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.5);
     z-index: 100000;
+    //防止隐藏区域遮挡按钮
+    pointer-events:none;
+    opacity: 0;
+    -webkit-transition: opacity .3s ease-in-out;
+    -moz-transition: opacity .3s ease-in-out;
 }
 
 
 
-.alertMasker>div .alert {
+.alert {
     display: table-row;
     width: 100%;
     height: 100%;
     position: relative;
 }
 
-
-.alertMasker>div .alert .inner {
+.alert .inner {
     min-width: 275px;
     max-width: 300px;
     background: #fff;
@@ -29,15 +41,16 @@
     left: 50%;
     top: 50%;
     padding-top: 12px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 45px, rgba(0, 0, 0, 0.22) 0px 10px 18px;
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
 }
 
-.alertMasker>div .alert .inner p.smallFont {
+.alert .inner p.smallFont {
     font-size: 14px;
 }
 
-.alertMasker>div .alert .inner p.smallUrl {
+div .alert .inner p.smallUrl {
     font-size: 14px;
     padding: 0 10px;
     padding-bottom: 8px;
@@ -45,7 +58,7 @@
     word-break:break-all;
 }
 
-.alertMasker>div .alert h2 {
+.alert h2 {
     box-sizing: content-box;
     font-size:19px;
     font-weight:normal;
@@ -57,7 +70,7 @@
 }
 
 
-.alertMasker>div .alert p {
+.alert p {
     color: #000000;
     padding: 8px 10px;
     font-size:16px;
@@ -66,19 +79,19 @@
 }
 
 
-.alertMasker footer {
+footer {
     display: -webkit-box;
     width: 100%;
     box-sizing: border-box;
     padding: 0;
 }
 
-.alertMasker footer>a:only-child {
+footer>a:only-child {
     width: 100%;
 }
 
 
-.alertMasker footer>.button {
+footer>.button {
     display: block;
     height: 100%;
     line-height: 30pt;
@@ -87,8 +100,7 @@
     color: #2d2d2d;
 }
 
-
-.alertMasker a.button {
+a.button {
     cursor: pointer;
     text-decoration: none;
     font-size: 17px;
@@ -117,12 +129,13 @@
     color: #ff4400;
     border-color: #bfbfc9;
     background-color: rgba(255,255,255,.01);
+    -webkit-tap-highlight-color:transparent;//去掉点击时的蓝色背景色
 }
 
-.alertMasker footer>.button:first-child{
+footer>.button:first-child{
     border-bottom-left-radius:14px;
 }
 
-.alertMasker footer>.button:last-child{
+footer>.button:last-child{
     border-bottom-right-radius:14px;
 }
