@@ -5,13 +5,14 @@ import ExampleContainer     from 'exampleContainer/exampleContainer'
 import ExampleButton        from 'exampleButton/exampleButton'
 import ExampleParameter     from 'exampleParameter/exampleParameter'
 import ShowDialog           from 'dialog/showDialog'
+import Button               from 'button/input_button'
 export default class extends Component{
     constructor(props){
         super(props);
     }
     componentDidMount(){
         //使用时先载入弹窗但不显示
-        ShowDialog({isShow: false});
+        // ShowDialog({isShow: false});
     }
     render(){
         let _this = this;
@@ -26,18 +27,16 @@ export default class extends Component{
             ["cancleCallback","function","()=>false","取消按钮回调事件"]
         ]
         //过滤器列表
-		let filterChoiceDic = {
-            0:['C','估','估算涨幅'],
-            1:['D','日','日涨幅'],
-            2:['M','月','近1月'],
-            3:['Q','季','近3月'],
-            4:['Y','年','近1年'],
+		let listDic = {
         }
         return  <div className={Style.indexContainer}>
                     <ExampleContainer title = {"Dialog"}>
                         <div className = {Style.componentContainer}>
                             <ExampleParameter tableList = {dialogList}/>
-                            <ExampleButton clickCallback = {()=>ShowDialog({isShow: true, title: '温馨提示', content: '弹窗内容'})}/>
+                            <Button name = {'单按钮弹窗'} status = {1} type = {1} callback = { ()=>ShowDialog({isShow: true, type:1, title: '温馨提示', content: '弹窗内容'}) } />
+                            <Button name = {'双按钮弹窗'} status = {1} type = {1} callback = { ()=>ShowDialog({isShow: true, type:2, title: '温馨提示', content: '弹窗内容', confirmText: '确认', cancleText: '取消'}) } />
+                            <Button name = {'密码弹窗'} status = {1} type = {1} callback = { ()=>ShowDialog({isShow: true, type:3, title: '温馨提示', confirmText: '确认', cancleText: '取消'}) } />
+                            <Button name = {'底部弹窗'} status = {1} type = {1} callback = { ()=>ShowDialog({isShow: true, type:4}) } />
                         </div>
                     </ExampleContainer>
                 </div>

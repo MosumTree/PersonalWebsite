@@ -88,7 +88,16 @@ define(function(require, exports, module) {
                 return;
             },
             
-            
+            //千分位,ttfund里的会给克数加小数点
+            comdify(n){
+                // 　　var re=/\d{1,3}(?=(\d{3})+$)/g;
+                // 　　var n1=n.replace(/^(\d+)((\.\d+)?)$/,function(s,s1,s2){return s1.replace(re,"$&,")+s2;});
+                // 　　return n1;
+
+                var re=/\d{1,3}(?=(\d{3})+$)/g;
+            　　var n1=n.replace(/^(\d+)((\.\d+)?)$/,function(s,s1,s2){return s1.replace(re,"$&,")+s2;});
+            　　return n1;
+            },
             fmoney: function(s,n) {
                 if(s == 0 && n != 0){
                     if(n == 4)
