@@ -12,8 +12,6 @@ class FilterMask extends Component {
             chosenItem:0
 		};
     };
-
-
 	componentWillReceiveProps(nextProps){
         let _this = this;
         _this.setState({

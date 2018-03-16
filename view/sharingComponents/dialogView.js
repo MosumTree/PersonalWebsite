@@ -6,13 +6,15 @@ import ExampleButton        from 'exampleButton/exampleButton'
 import ExampleParameter     from 'exampleParameter/exampleParameter'
 import ShowDialog           from 'dialog/showDialog'
 import Button               from 'button/input_button'
+import ShowFilter           from 'filterMask/showFilterMask';
 export default class extends Component{
     constructor(props){
         super(props);
     }
     componentDidMount(){
         //使用时先载入弹窗但不显示
-        // ShowDialog({isShow: false});
+        ShowDialog({isShow: false});
+        ShowFilter(true,false);
     }
     render(){
         let _this = this;
@@ -26,8 +28,17 @@ export default class extends Component{
             ["callback","function","()=>false","确认按钮回调事件"],
             ["cancleCallback","function","()=>false","取消按钮回调事件"]
         ]
+        let filterList = [
+            ["isShow","bool","false","控制组件载入"],
+            ["isExpand","bool","false","控制组件展示"],
+            ["filterChoiceDic","object","{}","组件选项文字"],
+            ["callback","function","()=>false","选项点击事件"],
+        ]
         //过滤器列表
-		let listDic = {
+		//过滤器列表
+		let filterChoiceDic = {
+            0:['A','估','选项1'],
+            1:['B','日','选项2']
         }
         return  <div className={Style.indexContainer}>
                     <ExampleContainer title = {"Dialog"}>
@@ -36,7 +47,12 @@ export default class extends Component{
                             <Button name = {'单按钮弹窗'} status = {1} type = {1} callback = { ()=>ShowDialog({isShow: true, type:1, title: '温馨提示', content: '弹窗内容'}) } />
                             <Button name = {'双按钮弹窗'} status = {1} type = {1} callback = { ()=>ShowDialog({isShow: true, type:2, title: '温馨提示', content: '弹窗内容', confirmText: '确认', cancleText: '取消'}) } />
                             <Button name = {'密码弹窗'} status = {1} type = {1} callback = { ()=>ShowDialog({isShow: true, type:3, title: '温馨提示', confirmText: '确认', cancleText: '取消'}) } />
-                            <Button name = {'底部弹窗'} status = {1} type = {1} callback = { ()=>ShowDialog({isShow: true, type:4}) } />
+                        </div>
+                    </ExampleContainer>
+                    <ExampleContainer title = {"Filter"}>
+                        <div className = {Style.componentContainer}>
+                            <ExampleParameter tableList = {filterList}/>
+                            <Button name = {'底部弹窗'} status = {1} type = {1} callback = { ()=>{ ShowFilter(true, true, filterChoiceDic,(i)=>{ alert(i)}) } }/>
                         </div>
                     </ExampleContainer>
                 </div>
